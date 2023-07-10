@@ -7,20 +7,59 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 8,),
-            CustomTextField(hintText: 'name', maxLines: 1),
-            SizedBox(height: 8,),
-            CustomTextField(hintText: 'note', maxLines: 10),
-            SizedBox(height: 16,),
-            CustomAddButton(),
-            SizedBox(height: 8,),
-          ],
-        ),
+        child: AddNoteForm(),
+      ),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  AddNoteForm({super.key});
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+
+  GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, subTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        children: [
+          const SizedBox(height: 8,),
+          CustomTextFormField(
+            hintText: 'name',
+            maxLines: 1,
+          onSaved: (value) {
+           title = value;
+          }),
+          const SizedBox(height: 8,),
+          CustomTextFormField(
+              hintText: 'note',
+              maxLines: 10,
+              onSaved: (value) {
+                title = value;
+              }),
+          const SizedBox(height: 8,),
+          CustomAddButton(onTap: () {
+            if (formKey.currentState!.validate()) {
+              formKey.currentState!.save();
+            }else {
+              autovalidateMode = AutovalidateMode.always;
+            }
+          }),
+          const SizedBox(height: 8,),
+        ],
       ),
     );
   }

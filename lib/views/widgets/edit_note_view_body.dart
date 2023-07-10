@@ -8,21 +8,21 @@ class EditNotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: SafeArea(
             child: Column(
               children: [
-                SizedBox(height: 8,),
-                CustomAppBar(
+                const SizedBox(height: 8,),
+                const CustomAppBar(
                   title: 'Edit Note',
                   icon: FontAwesomeIcons.check,
                 ),
-                SizedBox(height: 16,),
-                CustomTextField(hintText: 'title', maxLines: 1,),
-                SizedBox(height: 8,),
-                CustomTextField(hintText: 'subTitle', maxLines: 10,),
+                const SizedBox(height: 16,),
+                CustomTextFormField(hintText: 'title', maxLines: 1,),
+                const SizedBox(height: 8,),
+                CustomTextFormField(hintText: 'subTitle', maxLines: 10,),
               ],
             ),
           ),
