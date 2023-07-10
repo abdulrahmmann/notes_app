@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/views/widgets/custom_app_bar.dart';
-import 'package:notes_app/views/widgets/custom_note_item.dart';
+import 'package:notes_app/views/widgets/notes_list_view.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
@@ -9,24 +9,29 @@ class NotesViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Column(
-            children: [
-              // custom app bar.
-              CustomAppBar(title: 'Search', icon: FontAwesomeIcons.search,),
-              SizedBox(height: 24,),
-              // notes listView.builder.
-              CustomNoteItem(
-                title: 'Flutter Tips',
-                subTitle: 'flutter tips flutter tips flutter tips',
-              ),
-
-            ],
-          ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          children: [
+            // custom app bar.
+            SizedBox(
+              height: 8,
+            ),
+            CustomAppBar(
+              title: 'Notes',
+              icon: FontAwesomeIcons.search,
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            // notes listView.builder.
+            Expanded(
+                child: NotesListView()
+            ),
+          ],
         ),
+      ),
     );
   }
 }
-
 
