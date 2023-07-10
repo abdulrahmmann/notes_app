@@ -79,6 +79,7 @@ flutter:
      - family: Poppins
        fonts:
          - asset: assets/fonts/Poppins-Regular.ttf
+         - asset: assets/fonts/Roboto-Regular.ttf
 
   #
   # For details regarding fonts from package dependencies,
