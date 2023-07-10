@@ -15,6 +15,7 @@ class CustomAppBar extends StatelessWidget {
           title,
           style: const TextStyle(fontSize: 32, color: Colors.white),
         ),
+        // customIcon.
         Container(
           width: 50,
           height: 50,
@@ -22,10 +23,12 @@ class CustomAppBar extends StatelessWidget {
             color: Colors.white.withOpacity(.2),
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 24,),
+          child: IconButton(
+              onPressed: () {
+
+              },
+              icon: Icon(icon, size: 24, color: Colors.white,)
+          )
         )
       ],
     );
