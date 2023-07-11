@@ -46,11 +46,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(height: 8,),
           CustomTextFormField(
               hintText: 'note',
-              maxLines: 10,
+              maxLines: 8,
               onSaved: (value) {
                 title = value;
               }),
-          const SizedBox(height: 8,),
+          const SizedBox(height: 16,),
           CustomAddButton(onTap: () {
             if (formKey.currentState!.validate()) {
               formKey.currentState!.save();
