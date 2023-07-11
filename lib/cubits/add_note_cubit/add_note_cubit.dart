@@ -6,6 +6,6 @@ class AddNoteCubit extends Cubit<AddNoteState> {
 
   AddNoteCubit() : super(AddNoteInitial());
 
-
+  
 
 }
