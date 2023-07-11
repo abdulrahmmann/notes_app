@@ -17,8 +17,8 @@ class AddNoteBottomSheet extends StatelessWidget {
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
 
           builder: (BuildContext context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is AddNoteLoading? true: false,
+            return AbsorbPointer(
+              absorbing: state is AddNoteLoading? true: false,
               child: SingleChildScrollView(
                 child: AddNoteForm(),
               ),
