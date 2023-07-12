@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/model/notes_model.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key, required this.title, required this.subTitle, required this.onTap});
+  const CustomNoteItem({super.key, required this.onTap, required this.note});
 
-  final String title, subTitle;
+  final NoteModel note;
   final VoidCallback onTap;
 
   @override
@@ -14,20 +15,20 @@ class CustomNoteItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(left: 16, top: 24, bottom: 24),
         decoration: BoxDecoration(
-            color: Colors.green,
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(16)
         ),
         child: Column(
           children: [
             ListTile(
                 title: Text(
-                  title,
+                  note.title,
                   style: const TextStyle(fontSize: 28, color: Colors.black, fontWeight: FontWeight.bold),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Text(
-                    title,
+                    note.subTitle,
                     style: TextStyle(fontSize: 19, color: Colors.black.withOpacity(.5)),
                   ),
                 ),
@@ -39,7 +40,7 @@ class CustomNoteItem extends StatelessWidget {
               alignment: Alignment.bottomRight,
               padding: const EdgeInsets.only(right: 16),
               child: Text(
-                'july 10, 2023',
+                note.date,
                 style: TextStyle(fontSize: 15, color: Colors.black.withOpacity(.5)),
               ),
             )
